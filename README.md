@@ -4,13 +4,13 @@ Tools for basic social network analysis, intended to be applied to literary cote
 
 ## wiki.py
 
-*Requirements*: Python 3 (though easily modifiable to work with 2.x), [Wikipedia](https://github.com/goldsmith/Wikipedia) API wrapper for Python.
+*Requirements*: Python 3 (though easily modifiable to work with 2.x), NLTK and the [Wikipedia](https://github.com/goldsmith/Wikipedia) API wrapper for Python.
 
 *Usage*:
 
-    python wiki.py [input.txt] [output.csv]
+    python wiki.py [input.txt] [output.csv] [--ngrams OR --links]
 
-This script takes a line-by-line list of Wikipedia article titles (e.g. a list of poets' names), looks up links shared between them, then outputs the resulting data as a labelled and weighted adjacency matrix, suitable for processing in a stats package like R.
+This script takes a line-by-line list of Wikipedia article titles (e.g. a list of poets' names), looks up either common bigrams/trigrams or links shared between them, then outputs the resulting data as a labelled and weighted adjacency matrix, suitable for processing in a stats package like R.
 
 ## wiki.R
 
