@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import csv
@@ -49,7 +49,7 @@ for entry in names:
 
     except wikipedia.exceptions.PageError:
 
-        print("Bad name!")
+        print("ERROR: "+ entry[:-1] + " not found on Wikipedia!")
 
 
 # compare the ngrams/links in each entry to those in every other entry
@@ -71,8 +71,14 @@ for entry in data:
             if phrase in entry[1] and str(entry[0]).find(name) == -1:
 
                 subscore += 1
-                    
-        score.append(subscore)
+        
+        if subscore < int(sys.argv[4]):
+        
+            score.append(0)
+
+        else:
+
+            score.append(subscore)
 
     results.append(score)
 
