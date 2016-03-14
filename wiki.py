@@ -69,13 +69,7 @@ for entry in data:
 
                 subscore += 1
         
-        if subscore < int(sys.argv[4]):
-        
-            score.append(0)
-
-        else:
-
-            score.append(subscore)
+        score.append(subscore)
 
     results.append(score)
 

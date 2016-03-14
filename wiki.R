@@ -3,6 +3,7 @@ library(igraph)
 args <- commandArgs(trailingOnly = TRUE) 
 people <- as.matrix(read.csv(args[1])) # input file - first command line argument
 people.g <- graph.adjacency(people, mode="undirected", weighted=TRUE, diag=FALSE)
+people.g <- delete.edges(people.g, which(E(people.g)$weight <args[3]))
 people.g <- delete.vertices(people.g,which(degree(people.g)<1))
 la <- layout.fruchterman.reingold(people.g, niter=500, weights=E(people.g)$weight)
 
