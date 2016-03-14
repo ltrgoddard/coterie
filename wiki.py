@@ -9,8 +9,6 @@ from nltk.collocations import *
 
 data, labels, results = [], [], []
 
-trigram_measures = nltk.collocations.TrigramAssocMeasures()
-
 
 # take a list of names in a file (first command line argument)
 
@@ -19,7 +17,7 @@ with open(sys.argv[1], "r") as input:
     names = input.readlines()
 
 
-# find common ngrams or links on the wikipedia page of each entry in the names list
+# find common trigrams or links on the wikipedia page of each entry in the names list
 
 for entry in names:
 
@@ -32,7 +30,8 @@ for entry in names:
             words = nltk.word_tokenize(article.content.translate(dict.fromkeys(string.punctuation)))
             trigram_finder = TrigramCollocationFinder.from_words(words)
             trigram_finder.apply_freq_filter(2)
-            data.append([entry, trigram_finder.nbest(nltk.collocations.TrigramAssocMeasures().pmi, 50)])  
+            trigram_measures = nltk.collocations.TrigramAssocMeasures()
+            data.append([entry, trigram_finder.nbest(nltk.collocations.TrigramAssocMeasures().pmi, 20)])  
 
         elif sys.argv[3] == "--links":
 
@@ -50,7 +49,7 @@ for entry in names:
         print("ERROR: "+ entry[:-1] + " not found on Wikipedia!")
 
 
-# compare the ngrams/links in each entry to those in every other entry
+# compare the trigrams/links in each entry to those in every other entry
 
 for entry in data:
 
@@ -69,7 +68,6 @@ for entry in data:
             if phrase in entry[1] and str(entry[0]).find(name) == -1:
 
                 subscore += 1
-                print(phrase)
         
         if subscore < int(sys.argv[4]):
         
