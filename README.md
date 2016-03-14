@@ -2,7 +2,7 @@
 
 Tools for basic social network analysis, intended to be applied to literary coteries but potentially useful for other things. Current components are listed below, with more to follow.
 
-[Example output: poets from *The New Poetry* (1966 edn., ed. by Al Alvarez) and *Children of Albion* (1969, ed. by Michael Horovitz) with at least eight shared links between their Wikipedia articles.](example.png)
+![Example output: poets from *The New Poetry* (1966 edn., ed. by Al Alvarez) and *Children of Albion* (1969, ed. by Michael Horovitz) with at least eight shared links between their Wikipedia articles.](example.png)
 
 ## wiki.py
 
