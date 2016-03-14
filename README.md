@@ -4,7 +4,7 @@ Tools for basic social network analysis, intended to be applied to literary cote
 
 ![Example output](example.png)
 
-Poets from *The New Poetry* (1966 edn., ed. by Al Alvarez) and *Children of Albion* (1969, ed. by Michael Horovitz) with at least eight shared links between their Wikipedia articles.
+Poets from *The New Poetry* (1966 edn., ed. by Al Alvarez), *Children of Albion* (1969, ed. by Michael Horovitz), *A Various Art* (1987, ed. by Andrew Crozier and Tim Longville), *Conductors of Chaos* (1996, ed. by Iain Sinclair) and the 1994 'New Generation Poets' list with at least ten shared links between their Wikipedia articles.
 
 ## wiki.py
 
