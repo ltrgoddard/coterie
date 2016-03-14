@@ -12,9 +12,9 @@ Poets from *The New Poetry* (1966 edn., ed. by Al Alvarez) and *Children of Albi
 
 *Usage*:
 
-    python wiki.py [input.txt] [output.csv] [--ngrams OR --links] [cut-off number]
+    python wiki.py [input.txt] [output.csv] [--3grams OR --links] [cut-off number]
 
-This script takes a line-by-line list of Wikipedia article titles (e.g. a list of poets' names), looks up either common bigrams/trigrams or links shared between them, then outputs the resulting data as a labelled and weighted adjacency matrix, suitable for processing in a stats package like R. If the number of links or ngrams for a given pairing is below the cut-off number, it will be recorded as zero&mdash;this helps to avoid cluttered graphs.
+This script takes a line-by-line list of Wikipedia article titles (e.g. a list of poets' names), looks up either common trigrams or links shared between them, then outputs the resulting data as a labelled and weighted adjacency matrix, suitable for processing in a stats package like R. If the number of links or trigrams for a given pairing is below the cut-off number, it will be recorded as zero&mdash;this helps to avoid cluttered graphs.
 
 ## wiki.R
 

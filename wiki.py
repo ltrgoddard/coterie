@@ -2,13 +2,13 @@
 
 import sys
 import csv
+import string
 import wikipedia
 import nltk
 from nltk.collocations import *
 
 data, labels, results = [], [], []
 
-bigram_measures = nltk.collocations.BigramAssocMeasures()
 trigram_measures = nltk.collocations.TrigramAssocMeasures()
 
 
@@ -27,14 +27,12 @@ for entry in names:
 
         article = wikipedia.page(entry)
         
-        if sys.argv[3] == "--ngrams":
+        if sys.argv[3] == "--3grams":
 
-            tokens = nltk.word_tokenize(article.content)
-            bigram_finder = BigramCollocationFinder.from_words(tokens)
-            trigram_finder = TrigramCollocationFinder.from_words(tokens)
-            bigram_finder.apply_freq_filter(3)
-            trigram_finder.apply_freq_filter(3)
-            data.append([entry, bigram_finder.nbest(bigram_measures.pmi, 15), trigram_finder.nbest(trigram_measures.pmi, 15)])  
+            words = nltk.word_tokenize(article.content.translate(dict.fromkeys(string.punctuation)))
+            trigram_finder = TrigramCollocationFinder.from_words(words)
+            trigram_finder.apply_freq_filter(2)
+            data.append([entry, trigram_finder.nbest(nltk.collocations.TrigramAssocMeasures().pmi, 50)])  
 
         elif sys.argv[3] == "--links":
 
@@ -71,6 +69,7 @@ for entry in data:
             if phrase in entry[1] and str(entry[0]).find(name) == -1:
 
                 subscore += 1
+                print(phrase)
         
         if subscore < int(sys.argv[4]):
         
