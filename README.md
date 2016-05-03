@@ -1,6 +1,6 @@
 # coterie
 
-Tools for basic social network analysis, intended to be applied to literary coteries but potentially useful for other things. Current components are listed below, with more to follow.
+Tools for basic social network analysis, intended to be applied to literary coteries but potentially useful for other things. Current components are listed below, with more to follow eventually.
 
 ![Example output](example.png)
 
