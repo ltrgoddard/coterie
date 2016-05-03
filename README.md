@@ -18,7 +18,7 @@ This script takes a line-by-line list of Wikipedia article titles (e.g. a list o
 
 ## wiki.R
 
-*Requirements*: R and its packages ggplot2 and igraph.
+*Requirements*: R and its package igraph.
 
 *Usage*:
 
